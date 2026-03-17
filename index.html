@@ -1,1 +1,222 @@
 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevLog | 기술 블로그</title>
+    <style>
+        /* Base Reset & Typography */
+        :root {
+            --bg-color: #fafafa;
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --accent-color: #2563eb;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Layout */
+        .page-container {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 4rem;
+        }
+
+        /* Profile Sidebar (Left Top) */
+        .sidebar {
+            position: sticky;
+            top: 4rem; /* 스크롤 시 상단 고정 */
+            align-self: start;
+        }
+
+        .profile-section {
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.025em;
+        }
+
+        .profile-title {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .profile-bio {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-links {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .profile-links a {
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .profile-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Main Content (Posts) */
+        .main-content {
+            min-width: 0;
+        }
+
+        .section-title {
+            font-size: 1.125rem;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .post-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .post-item {
+            group: block;
+        }
+
+        .post-date {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .post-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .post-item:hover .post-title {
+            color: var(--accent-color);
+        }
+
+        .post-excerpt {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 1.5rem;
+            }
+            .sidebar {
+                position: static;
+                border-bottom: none;
+            }
+            .profile-section {
+                padding-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+        <aside class="sidebar">
+            <div class="profile-section">
+                <h1 class="profile-name">이길훈 (Gilhoon Lee)</h1>
+                <span class="profile-title">Team Leader @ KIBA</span>
+                <p class="profile-bio">
+                    데이터와 프로세스를 최적화하는 데 관심이 많습니다. ISO27001 인증 심사원이며, 최근에는 제조 AI 전문 인력 양성과 사내 시스템 자동화에 집중하고 있습니다.
+                </p>
+                <div class="profile-links">
+                    <a href="#">GitHub</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Email</a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <h2 class="section-title">Latest Posts</h2>
+            <ul class="post-list">
+                <li class="post-item">
+                    <a href="#">
+                        <time class="post-date">Mar 10, 2026</time>
+                        <h3 class="post-title">사내 인증 및 학력 관리 시스템 엑셀 자동화 구축기</h3>
+                        <p class="post-excerpt">VLOOKUP과 INDEX MATCH, 그리고 매크로를 활용하여 흩어져 있던 인사 데이터를 하나의 시스템으로 통합하고 동적 하이퍼링크를 구현한 경험을 공유합니다.</p>
+                    </a>
+                </li>
+                <li class="post-item">
+                    <a href="#">
+                        <time class="post-date">Feb 12, 2026</time>
+                        <h3 class="post-title">제조 AI 전문가(AX 코칭 그룹) 서비스 기획 회고</h3>
+                        <p class="post-excerpt">컨설팅 프로젝트의 방법론과 기대 효과를 구체화하며, 효율적인 사내 매뉴얼 작성 시스템을 구축하기까지의 과정과 인사이트를 정리했습니다.</p>
+                    </a>
+                </li>
+                <li class="post-item">
+                    <a href="#">
+                        <time class="post-date">Jan 21, 2026</time>
+                        <h3 class="post-title">Synology NAS 외부 접속 및 네트워크 가시성 문제 해결</h3>
+                        <p class="post-excerpt">ipTime 환경에서 NAS 네트워크 가시성 문제를 해결하고 외부 접속을 안정적으로 구성하기 위한 트러블슈팅 과정을 다룹니다.</p>
+                    </a>
+                </li>
+                <li class="post-item">
+                    <a href="#">
+                        <time class="post-date">Jan 04, 2026</time>
+                        <h3 class="post-title">X32 콘솔을 활용한 교회 밴드 라이브 믹싱 세팅 가이드</h3>
+                        <p class="post-excerpt">디지털 오디오 믹싱 기초부터 보컬, 베이스, 키보드의 EQ 및 컴프레서 설정, 그리고 모니터 환경 구축까지의 노하우를 기록합니다.</p>
+                    </a>
+                </li>
+            </ul>
+        </main>
+    </div>
+
+</body>
+</html>
